@@ -40,6 +40,10 @@ img{
     width: 30%;
     height: 100%;
     background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 .col-right{
     width: 70%;
@@ -91,6 +95,7 @@ img{
 .activate-recivin-notificatio{
     text-decoration: underline;
     color: #6B94B2;
+    font-size: 13px;
 }
 
 /* search  */
@@ -112,4 +117,25 @@ img{
     height: 25px;
     padding: 5px;
     border: 1px solid #F8F8F8;
+}
+
+/* contacts  */
+.contacts-container{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: red;
+    overflow-y: auto;
+}
+.contacts{
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+}
+.contact-name{
+    padding-left: 15px;
+}
+.lst-msg{
+    font-size: 13px; 
+    color: lightgrey;
 }

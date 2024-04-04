@@ -45,8 +45,16 @@
                         </button>
                         <input type="text" placeholder="Cerca o inizia una nuova chat" class="search-bar">
                     </div>
-                    <div class="contacts">
-
+                    <div class="contacts-container">
+                        <div class="contacts" v-for="contact in contacts">
+                            <div class="contact-img">
+                                <img :src="`./img/avatar` + contact.avatar + `.jpg`" alt="">
+                            </div>
+                            <div class="contact-name">
+                                <div>{{contact.name}}</div>
+                                <div class="lst-msg">Ultimo messaggio inviato</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-right">
