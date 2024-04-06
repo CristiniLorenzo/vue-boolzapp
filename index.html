@@ -46,7 +46,10 @@
                         <input type="text" placeholder="Cerca o inizia una nuova chat" class="search-bar">
                     </div>
                     <div class="contacts-container">
-                        <div class="contacts" v-for="contact in contacts">
+                        <div class="contacts" 
+                        v-for="contact, index in contacts" 
+                        @click="activateContact(index)"
+                        :class="{'active': index === activeContact}">
                             <div class="contact-img">
                                 <img :src="`./img/avatar` + contact.avatar + `.jpg`" alt="">
                             </div>
@@ -72,24 +75,14 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>   
                     </div>
+
                     <div class="message-section">
-                        <div class="send message">
-                            <div class="message-text">
-                                hai portato a spasso il cane 
-                            </div>
-                            <div class="time">
-                                12:00
-                            </div>
-                        </div>
-                        <div class="recived message">
-                            <div class="message-text">
-                                hai portato a spasso il cane
-                            </div>
-                            <div class="time">
-                                12:00
-                            </div>
+                        <div v-for="message in activeMessages" :key="message.date" class="message" :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }">
+                            <div class="message-text">{{ message.message }}</div>
+                            <div class="time">{{ message.date }}</div>
                         </div>
                     </div>
+                    
                     <div class="type-message">
                         <div class="emoticon">
                             <i class="fa-regular fa-face-smile"></i>

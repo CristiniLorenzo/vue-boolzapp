@@ -172,6 +172,7 @@ img{
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }  
 .message{
     border-radius: 15px;
@@ -182,11 +183,11 @@ img{
     display: flex;
     justify-content: space-between;
 }
-.send{
+.sent{
     background-color: #D5F9BA;
     align-self: flex-end;
 }
-.recived{
+.received{
     background-color: #FFFFFF;
     align-self: flex-start;
 

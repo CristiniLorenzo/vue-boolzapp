@@ -87,5 +87,17 @@ createApp({
         };
     },
     methods: {
-    }
+      activateContact(clickedContact){
+        this.activeContact = clickedContact;
+        console.log(this.activeContact);
+    },
+    },
+    computed: {
+      activeMessages() {
+          return this.contacts[this.activeContact].messages;
+      },
+  },
 }).mount('#app');
+
+
+
