@@ -84,7 +84,9 @@ createApp({
               },
             ],  
             activeContact : 0,
-            selectedContact: {}
+            selectedContact: {},
+            newMessageText: '',
+            searchQuery: '',
         };
     },
     methods: {
@@ -119,7 +121,12 @@ createApp({
       },
       selectedContact() {
         return this.contacts[this.activeContact];
-    }
+      },
+      filteredContacts() {
+        return this.contacts.filter(contact =>
+            contact.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+        );
+      },
   },
 }).mount('#app');
 
