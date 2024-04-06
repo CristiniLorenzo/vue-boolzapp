@@ -84,18 +84,42 @@ createApp({
               },
             ],  
             activeContact : 0,
+            selectedContact: {}
         };
     },
     methods: {
       activateContact(clickedContact){
         this.activeContact = clickedContact;
-        console.log(this.activeContact);
-    },
+        this.selectedContact = this.contacts[clickedContact];
+        console.log(this.selectedContact);
+      },
+      sendMessage() {
+        const message = {
+            date: new Date().toLocaleString(),
+            message: this.newMessageText,
+            status: 'sent'
+        };
+        this.selectedContact.messages.push(message);
+
+        setTimeout(() => {
+            const pcResponse = {
+                date: new Date().toLocaleString(),
+                message: 'ok',
+                status: 'received'
+            };
+            this.selectedContact.messages.push(pcResponse);
+        }, 1000);
+
+        this.newMessageText = '';
+      }
     },
     computed: {
       activeMessages() {
           return this.contacts[this.activeContact].messages;
       },
+      selectedContact() {
+        return this.contacts[this.activeContact];
+    }
   },
 }).mount('#app');
 

@@ -63,10 +63,10 @@
                 <div class="col-right">
                     <div class="contact-bar">
                         <div class="contact-bar-left">
-                            <img src="./img/avatar_1.jpg" alt="">
+                            <img :src="`./img/avatar${selectedContact.avatar}.jpg`" alt="">
                             <div class="contact-bar-info">
-                                <div>Michele</div>
-                                <div>Ultimo accesso alle 12:00</div>
+                                <div>{{ selectedContact.name }}</div>
+                                <div>Ultimo accesso alle 12:00</div> 
                             </div>
                         </div>
                         <div class="contact-bar-icon">
@@ -88,7 +88,7 @@
                             <i class="fa-regular fa-face-smile"></i>
                         </div>
                         <div class="text-area">
-                            <input type="text" placeholder="Scrivi un messaggio">
+                            <input type="text" placeholder="Scrivi un messaggio" v-model="newMessageText" @keyup.enter="sendMessage">
                         </div>
                         <div class="send-message">
                             <i class="fa-solid fa-microphone"></i>
